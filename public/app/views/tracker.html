@@ -5,80 +5,63 @@
         <div class="form-group">
             <label class="col-md-2 control-label">Food Item</label>
             <div class="col-md-4">
-                <input type="text" class="form-control" name="foodItem"
-                    ng-model="food.desc" />
+                <input type="text" class="form-control" name="food"
+                    ng-model="item.food" />
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-2 control-label">Calories</label>
             <div class="col-md-4">
-                <input type="number" class="form-control" name="foodCalories"
-                    ng-model="food.calories" />
+                <input type="number" class="form-control" name="calories"
+                    ng-model="item.calories" />
             </div>
-        </div>
+            
         <div class="form-group">
-            <button class="btn btn-primary" ng-click="addFoodCalories()">
-                Submit
-            </button>
-        </div>
-
-        
-        
-      <!--<div class="form-group">		
-            <input type="button" value="Submit" ng-click="getTotalCalories()"  class="btn btn-primary"/>
-      </div>-->
-
-<br>
-
-
-<form class="form-horizontal" role="form" ng-submit="addCalories()">
-
-	<div class="form-group">
-		<label class="col-md-2 control-label">Workout</label>
-		<div class="col-md-4">
-			<input type="text" class="form-control" name="workoutType"
-				ng-model="workoutType" />
-		</div>
-	</div>
+		    <label class="col-md-2 control-label">Workout</label>
+		    <div class="col-md-4">
+			    <input type="text" class="form-control" name="workout"
+				ng-model="item.workout" />
+		    </div>
+	    </div>
     
     <div class="form-group">
 		<label class="col-md-2 control-label">Burned Calories</label>
 		<div class="col-md-4">
-			<input type="number" class="form-control" name="burnedCalories"
-				ng-model="burnedCalories" />
+			<input type="number" class="form-control" name="caloriesBurned"
+				ng-model="item.caloriesBurned" />
 		</div>
 	</div>
-    
-    
-    
-	<div class="form-group">	
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="addItem(item)">
+                Submit
+            </button>
+        </div>
 
-			<input type="button" value="Submit" ng-click="getTotalCalories()" class="btn btn-primary"/>
-	</div>
-</form>
+           
+ 
+
 <br>
 
 
-
-<table class="table table-stripe" >
+<table class="table table-striped " >
     <tr>
        
         <th>Food</th>
-        <th>Food Calories</th>
-        <!--
+        <th>Food Calories</th>      
         <th>Workout</th>
         <th>Burned Calories</th>
-        <th>Total Calories</th>
-        -->
+       
     </tr>
-    <tr ng-repeat="cal in tracker.diet">
-        <td ng-cloak>{{ cal.desc }}</td>
-        <td ng-cloak>{{ cal.calories }}</td>
-        <!--
-        <td>{{ cal.workoutType }}</td>
-        <td>{{ cal.burnedCalories }}</td>
-        <td>{{ cal.totalCalories}}</td>
-        -->
+    <tr ng-repeat="item in items">
+        <td ng-cloak>{{ item.food }}</td>
+        <td ng-cloak>{{ item.calories }}</td>
+        <td ng-cloak>{{ item.workout }}</td>
+        <td ng-cloak>{{ item.caloriesBurned}}</td>
+
+
+        
     </tr>
 </table>
 
+<div>Balance Calories for today: {{totalCalories()}}</div>

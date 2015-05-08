@@ -1,11 +1,89 @@
+(function(){
+    
+    var mainController = function($scope) {
+       
+        $scope.idealCalories = 1500;
+        $scope.items = []; //item list array
+       
+        
+        $scope.items = [
+            {
+                food: 'Banana',
+                calories: 105,
+                workout: 'Running',
+                caloriesBurned: 500              
+            },
+            {
+                food: 'Oatmeal',
+                calories: 450,
+                workout: 'Cycling',
+                caloriesBurned: 400     
+            },
+            {
+                food: 'Brown rice with curry',
+                calories: 600,
+                workout: 'Swimming',
+                caloriesBurned: 200     
+            }
+        ];
+        
+        
+        
+        //add an item to the list
+        $scope.addItem = function(item){		
+            $scope.items.push(item);
+            $scope.item = {};
+            }
+
+        //subtracts food and workout calories
+        $scope.totalCalories = function(){
+            var total = 0;
+            for(count=0;count<$scope.items.length;count++){
+                total += $scope.items[count].calories-$scope.items[count].caloriesBurned;
+            }
+            return total;
+        }       
 
 
+    };
+    
+
+    mainController.$inject = ['$scope'];
+    
+    angular.module('myApp').controller('mainController', mainController);
+ 
+}());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 myApp.controller('mainController', ['$scope', function($scope) {
     
-    /*
+   
     $scope.totalCalories;
     $scope.idealCalories = 1500;
-    */
+   
  
     $scope.food ={
         desc: '',
@@ -42,35 +120,6 @@ myApp.controller('mainController', ['$scope', function($scope) {
         }	
     }      
     
-    /*
-    $scope.tracker = {
-        foodTrackerfoodItem:'',
-        foodCalories:0,
-        workoutType:'',
-        burnedCalories:0
-        
-    }
-
-    
-    $scope.calories = [];
-
-    
-        
-
-    $scope.calories = [];
-    
-    $scope.addCalories =  function(){
-	    $scope.calories.push({
-            foodItem:$scope.tracker.foodItem, 
-            foodCalories:$scope.tracker.foodCalories, 
-            workoutType: $scope.tracker.workoutType, 
-            burnedCalories:$scope.tracker.burnedCalories 
-        });
-        
-	   
-    }          
-   */
-    
     
     function getTotalCalories() {
         var total = $scope.foodCalories - $scope.burnedCalories;
@@ -81,8 +130,7 @@ myApp.controller('mainController', ['$scope', function($scope) {
         $scope.totalCalories = ($scope.totalCalories  > 0 | $scope.totalCalories > $scope.idealCalories) ? 'success' : 'danger';
         return $scope.totalCalories;
     }
-    
-                 
-                 
+                  
                  
 }]);
+*/

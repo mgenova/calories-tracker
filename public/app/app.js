@@ -1,10 +1,14 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate']);
-
-myApp.config(function($routeProvider){
+(function(){
     
-   $routeProvider 
-   .when('/', {
-       templateUrl: 'app/views/tracker.html',
-       controller: 'mainController'
-   })
-});
+    var myApp = angular.module('myApp', ['ngRoute']);
+
+    myApp.config(function($routeProvider){
+
+       $routeProvider 
+       .when('/', {
+           templateUrl: 'app/views/tracker.html',
+           controller: 'mainController'
+        })
+        .otherwise({redirectTo:'/'});
+   });
+}());
