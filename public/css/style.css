@@ -1,12 +1,25 @@
-/*
-    Document   : css/style.css
-    Created on : 2015-05-04 08:25 PM
-    Author     : mgenova
-    Description:
-    Purpose of the stylesheet follows.
-    To change this template use Tools | Templates.
-*/
+body{
+    padding: 40px;
+    background-image: url('https://www.learntolive.com/wp-content/uploads/effects-excercise-social-anxiety.jpg');
+    
+}
 
-root {
-    display: block;
+#app{
+    background: rgba(0,0,0, .35);
+    border-radius: 10px;
+    padding: 40px;
+    color: white;
+}
+header, main, footer{
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+
+.negative{
+    color: red;
+}
+
+.text-danger{
+    color: red;
 }

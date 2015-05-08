@@ -1,67 +1,70 @@
-        
-        <h2>Calories Tracker</h2>
+<div id="app" class="container">
+    <header class="row">
+        <div class="col-sm-6">
+            <h2>Calories Tracker</h2>        
+             <h4 class="pull-right" ng-class="[{'text-info':isNegative}, {'text-danger': isHighCalories}]">Balance: <span class="lead">{{totalCalories|number}}</span> calories</h4>       
+        </div>
+    </header>  
 
-
-        <div class="form-group">
-            <label class="col-md-2 control-label">Food Item</label>
-            <div class="col-md-4">
-                <input type="text" class="form-control" name="food"
-                    ng-model="item.food" />
+    <main class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-md-2 control-label">Food Item</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="food"
+                        ng-model="item.food" />
             </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-2 control-label">Calories</label>
-            <div class="col-md-4">
-                <input type="number" class="form-control" name="calories"
-                    ng-model="item.calories" />
             </div>
-            
-        <div class="form-group">
-		    <label class="col-md-2 control-label">Workout</label>
-		    <div class="col-md-4">
-			    <input type="text" class="form-control" name="workout"
-				ng-model="item.workout" />
-		    </div>
-	    </div>
-    
-    <div class="form-group">
-		<label class="col-md-2 control-label">Burned Calories</label>
-		<div class="col-md-4">
-			<input type="number" class="form-control" name="caloriesBurned"
-				ng-model="item.caloriesBurned" />
-		</div>
-	</div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Calories</label>
+                <div class="col-md-4">
+                    <input type="number" class="form-control" name="calories"
+                        ng-model="item.calories" />
+            </div>            
+            <div class="form-group">
+                <label class="col-md-2 control-label">Workout</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="workout"
+                    ng-model="item.workout" />
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="col-md-2 control-label">Burned Calories</label>
+                <div class="col-md-4">
+                    <input type="number" class="form-control" name="caloriesBurned"
+                        ng-model="item.caloriesBurned" />
+                </div>
+            </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" ng-click="addItem(item)">
+                    Submit
+                </button>
+            </div>        
         </div>
-        <div class="form-group">
-            <button class="btn btn-primary" ng-click="addItem(item)">
-                Submit
-            </button>
+    </main>
+
+    <footer class="row">
+        <div class="col-sm-6">
+            <table class="table  table-responsive" >
+                <tr>
+
+                    <th>Food</th>
+                    <th>Food Calories</th>      
+                    <th>Workout</th>
+                    <th>Burned Calories</th>
+
+                </tr>
+                <tr ng-repeat="item in items">
+                    <td ng-cloak>{{ item.food }}</td>
+                    <td ng-cloak>{{ item.calories }}</td>
+                    <td ng-cloak>{{ item.workout }}</td>
+                    <td ng-cloak>{{ item.caloriesBurned}}</td>
+
+
+
+                </tr>
+            </table>            
         </div>
-
-           
- 
-
-<br>
-
-
-<table class="table table-striped " >
-    <tr>
-       
-        <th>Food</th>
-        <th>Food Calories</th>      
-        <th>Workout</th>
-        <th>Burned Calories</th>
-       
-    </tr>
-    <tr ng-repeat="item in items">
-        <td ng-cloak>{{ item.food }}</td>
-        <td ng-cloak>{{ item.calories }}</td>
-        <td ng-cloak>{{ item.workout }}</td>
-        <td ng-cloak>{{ item.caloriesBurned}}</td>
-
-
-        
-    </tr>
-</table>
-
-<div>Balance Calories for today: {{totalCalories()}}</div>
+    </footer>
+</div>    
